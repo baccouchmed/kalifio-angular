@@ -1,0 +1,22 @@
+<mat-drawer-container class="w-screen h-screen" autosize>
+  <mat-drawer #drawer class="h-full w-40 flex flex-col justify-center" mode="side" opened>
+    <div class="h-40">Company Logo</div>
+    <div *ngFor="let item of items; index as i" class="flex flex-col justify-start items-center">
+      <mat-card class="w-full">
+        <div class="w-full flex flex-row justify-start items-center border h-12 px-2">
+          <div class="mt-2">
+            <mat-icon class="">{{ item.icon }}</mat-icon>
+          </div>
+          <div class="ml-4">
+            <a class="" [routerLink]="item.title">{{ item.title }}</a>
+          </div>
+        </div>
+      </mat-card>
+    </div>
+  </mat-drawer>
+
+  <div class="example-sidenav-content">
+    <button type="button" mat-button (click)="drawer.toggle()">Toggle sidenav</button>
+    <router-outlet></router-outlet>
+  </div>
+</mat-drawer-container>
